@@ -37,6 +37,8 @@ dependencies:
   flutter_svg: ^1.1.6
   fluttertoast: ^8.1.2
   get: ^4.6.5
+  google_fonts: ^4.0.2
+  shared_preferences: ^2.0.17
 
 dev_dependencies:
   flutter_lints: ^2.0.0

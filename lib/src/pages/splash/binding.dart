@@ -1,4 +1,4 @@
-import 'package:chat_app/src/screens/splash/controller.dart';
+import 'package:chat_app/src/pages/splash/controller.dart';
 import 'package:get/get.dart';
 
 class SplashBinding implements Bindings {

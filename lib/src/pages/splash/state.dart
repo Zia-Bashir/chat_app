@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
 class SplashState {
-  var index = 0.0.obs;
+  var animate = false.obs;
+  var logIn = false;
 }
