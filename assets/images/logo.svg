@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="166" height="129.959" viewBox="0 0 166 129.959">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #516091;
+      }
+
+      .cls-2 {
+        fill: #74bec1;
+      }
+
+      .cls-3 {
+        fill: #eef3ad;
+      }
+
+      .cls-4 {
+        fill: #adebbe;
+        mix-blend-mode: hard-light;
+        isolation: isolate;
+      }
+    </style>
+  </defs>
+  <g id="logo" transform="translate(-75 -239.709)">
+    <path id="Union_4" data-name="Union 4" class="cls-1" d="M47.12,124.78,47,117.3A59.293,59.293,0,0,1,59.286,0h47.428a59.286,59.286,0,0,1,0,118.571H72.739L54.62,129.032a4.99,4.99,0,0,1-7.5-4.253Z" transform="translate(75 239.959)"/>
+    <path id="Intersection_1" data-name="Intersection 1" class="cls-2" d="M.774,68.763A59.217,59.217,0,0,1,59.166,0H82.734Q83,2.923,83,5.917A65.148,65.148,0,0,1,17.786,71,65.428,65.428,0,0,1,.774,68.763Z" transform="translate(75 239.709)"/>
+    <path id="Intersection_3" data-name="Intersection 3" class="cls-3" d="M0,71.143A71.153,71.153,0,0,1,110.681,11.99,59.3,59.3,0,0,1,52.171,61.657H18.2L.077,72.118l-.07.04C0,71.821,0,71.481,0,71.143Z" transform="translate(129.543 296.873)"/>
+    <path id="Intersection_2" data-name="Intersection 2" class="cls-4" d="M0,0H47.408A59.3,59.3,0,0,1,97.643,90.784q-2.375.12-4.782.121A92.882,92.882,0,0,1,0,0Z" transform="translate(134.307 239.958)"/>
+  </g>
+</svg>
