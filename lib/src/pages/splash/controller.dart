@@ -1,3 +1,4 @@
+import 'package:chat_app/src/common/routes/names.dart';
 import 'package:chat_app/src/pages/home/view.dart';
 import 'package:chat_app/src/pages/splash/state.dart';
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ import '../../common/utils/storage.dart';
 
 class SplashController extends GetxController {
   final state = SplashState();
+  SplashController();
 
   Future<void> startAnimation() async {
     await Future.delayed(const Duration(milliseconds: 500));
@@ -19,8 +21,7 @@ class SplashController extends GetxController {
         //Get.offAllNamed("/home");
         Get.to(() => const HomeScreen());
       } else {
-        //Get.offAllNamed("/login");
-        Get.to(() => const HomeScreen());
+        Get.offAllNamed(AppRoutes.WELCOME);
       }
     }));
   }

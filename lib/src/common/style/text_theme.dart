@@ -15,12 +15,14 @@ class AppTextTheme {
         fontSize: 28.sp,
         fontWeight: FontWeight.w600,
         color: AppColors.mainColor),
-    headline3: GoogleFonts.mulish(
-      fontSize: 21.sp,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
-    ),
-    headline4: GoogleFonts.mulish(fontSize: 20.sp, fontWeight: FontWeight.w600),
+    headline3: GoogleFonts.poppins(
+        fontSize: 21.sp,
+        fontWeight: FontWeight.w600,
+        color: AppColors.yellowColor),
+    headline4: GoogleFonts.poppins(
+        fontSize: 18.sp,
+        fontWeight: FontWeight.w600,
+        color: AppColors.yellowColor),
     headline5: GoogleFonts.mulish(
       fontSize: 18.sp,
       fontWeight: FontWeight.w500,
@@ -37,10 +39,10 @@ class AppTextTheme {
       fontSize: 12.sp,
       fontWeight: FontWeight.w600,
     ),
-    bodyText1: GoogleFonts.mulish(
-      fontSize: 17.sp,
-      fontWeight: FontWeight.w800,
-    ),
+    bodyText1: GoogleFonts.poppins(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w600,
+        color: AppColors.mainColor),
     bodyText2: GoogleFonts.mulish(
         fontSize: 24.sp,
         fontWeight: FontWeight.w400,
