@@ -1,3 +1,4 @@
+import 'package:chat_app/src/common/routes/names.dart';
 import 'package:chat_app/src/common/routes/pages.dart';
 import 'package:chat_app/src/common/services/services.dart';
 import 'package:chat_app/src/common/theme/theme.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
           darkTheme: MyTheme.darkTheme,
           themeMode: ThemeMode.system,
           home: child,
+          initialRoute: AppRoutes.INITIAL,
           getPages: AppPages.routes,
         );
       },

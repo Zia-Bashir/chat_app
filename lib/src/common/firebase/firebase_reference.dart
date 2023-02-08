@@ -5,3 +5,4 @@ final firestore = FirebaseFirestore.instance;
 final auth = FirebaseAuth.instance;
 
 final userRF = firestore.collection("UserData");
+final messageRF = firestore.collection("messages");

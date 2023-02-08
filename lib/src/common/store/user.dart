@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 class UserStore extends GetxController {
   static UserStore get to => Get.find();
 
-  // 是否登录
   final _isLogin = false.obs;
   String token = '';
   final _profile = UserLoginResponseEntity().obs;

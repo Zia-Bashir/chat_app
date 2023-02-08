@@ -1,6 +1,9 @@
 import 'package:chat_app/src/common/entities/entities.dart';
 import 'package:chat_app/src/common/firebase/firebase_reference.dart';
+import 'package:chat_app/src/common/routes/names.dart';
+import 'package:chat_app/src/common/services/services.dart';
 import 'package:chat_app/src/common/store/store.dart';
+import 'package:chat_app/src/common/values/values.dart';
 import 'package:chat_app/src/common/widgets/toast.dart';
 import 'package:chat_app/src/pages/signin/state.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -78,6 +81,8 @@ class SignInController extends GetxController {
               .add(data);
         }
         toastInfo(msg: "Login Success");
+        await StorageServices.to.setBool(LOGIN_STATE, true);
+        Get.offAllNamed(AppRoutes.APPLICATION);
       }
     } catch (e) {
       print(e.toString());
