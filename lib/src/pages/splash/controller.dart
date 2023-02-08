@@ -3,8 +3,8 @@ import 'package:chat_app/src/pages/home/view.dart';
 import 'package:chat_app/src/pages/splash/state.dart';
 import 'package:get/get.dart';
 
-import '../../common/services/storage_services.dart';
-import '../../common/utils/storage.dart';
+import '../../common/services/storage.dart';
+import '../../common/values/values.dart';
 
 class SplashController extends GetxController {
   final state = SplashState();
@@ -21,7 +21,7 @@ class SplashController extends GetxController {
         //Get.offAllNamed("/home");
         Get.to(() => const HomeScreen());
       } else {
-        Get.offAllNamed(AppRoutes.WELCOME);
+        Get.offAllNamed(AppRoutes.SIGNIN);
       }
     }));
   }

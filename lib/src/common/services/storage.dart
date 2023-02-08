@@ -33,4 +33,8 @@ class StorageServices extends GetxController {
   List<String> getList(String key) {
     return pref.getStringList(key) ?? [];
   }
+
+  Future<bool> remove(String key) async {
+    return await pref.remove(key);
+  }
 }

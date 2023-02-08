@@ -1,5 +1,5 @@
-import 'package:chat_app/src/common/style/elevated_button_theme.dart';
-import 'package:chat_app/src/common/style/text_theme.dart';
+import 'package:chat_app/src/common/theme/elevated_button_theme.dart';
+import 'package:chat_app/src/common/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 
 class MyTheme {
