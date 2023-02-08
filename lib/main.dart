@@ -1,10 +1,12 @@
 import 'package:chat_app/src/common/routes/pages.dart';
-import 'package:chat_app/src/common/services/storage_services.dart';
-import 'package:chat_app/src/common/style/theme.dart';
+import 'package:chat_app/src/common/services/services.dart';
+import 'package:chat_app/src/common/theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:chat_app/src/common/store/config.dart';
+import 'package:chat_app/src/common/store/user.dart';
 
 import 'firebase_options.dart';
 import './src/common/helper/dependicies.dart' as dep;
@@ -16,9 +18,10 @@ void main() async {
   );
   //? --- Getx Dependecy Injection ---
   dep.initState();
-
   //* --- Storage Services ---
-  StorageServices.to.init();
+  await StorageServices.to.init();
+  Get.put<ConfigStore>(ConfigStore());
+  Get.put<UserStore>(UserStore());
 
   runApp(const MyApp());
 }
