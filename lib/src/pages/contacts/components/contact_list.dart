@@ -39,7 +39,10 @@ class ContactList extends GetView<ContactController> {
       padding: EdgeInsets.only(right: 15.w, left: 15.w, top: 15.h),
       child: InkWell(
         onTap: () {
-          controller.gochat(item);
+          if (item.id != null) {
+            print("--------------Id is not null");
+            controller.gochat(item);
+          }
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,

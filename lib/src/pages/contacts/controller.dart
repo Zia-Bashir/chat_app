@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:chat_app/src/common/entities/entities.dart';
 import 'package:chat_app/src/common/firebase/firebase_reference.dart';
+import 'package:chat_app/src/common/routes/names.dart';
 import 'package:chat_app/src/common/store/store.dart';
 import 'package:chat_app/src/pages/contacts/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -19,6 +20,7 @@ class ContactController extends GetxController {
     super.onReady();
   }
 
+  //* ----- Loading all Contacts ------
   loadAllContacts() async {
     var usersBase = await userRF
         .where("id", isNotEqualTo: token)
@@ -32,7 +34,9 @@ class ContactController extends GetxController {
     }
   }
 
+  //* ----- Chat with Contact ------
   gochat(UserData toUserData) async {
+    print("--------------From Message");
     var fromMessage = await messageRF
         .withConverter(
             fromFirestore: Msg.fromFirestore,
@@ -40,7 +44,7 @@ class ContactController extends GetxController {
         .where('from_uid', isEqualTo: token)
         .where('to_uid', isEqualTo: toUserData.id)
         .get();
-
+    print("--------------to Message");
     var toMessage = await messageRF
         .withConverter(
             fromFirestore: Msg.fromFirestore,
@@ -50,6 +54,7 @@ class ContactController extends GetxController {
         .get();
 
     if (fromMessage.docs.isEmpty && toMessage.docs.isEmpty) {
+      print("--------------Empty Message");
       String profile = await UserStore.to.getProfile();
       UserLoginResponseEntity userData =
           UserLoginResponseEntity.fromJson(jsonDecode(profile));
@@ -64,23 +69,27 @@ class ContactController extends GetxController {
         msg_num: 0,
         last_time: Timestamp.now(),
       );
+      print("-------------- Message Data ----- $msgData");
 
       messageRF
           .withConverter(
               fromFirestore: Msg.fromFirestore,
-              toFirestore: (value, options) => value.toFirestore())
+              toFirestore: (Msg msg, options) => msg.toFirestore())
           .add(msgData)
-          .then((value) => {
-                Get.toNamed('/chat', parameters: {
-                  'doc_id': value.id,
-                  'to_uid': toUserData.id ?? '',
-                  'to_name': toUserData.name ?? '',
-                  'to_avatar': toUserData.photourl ?? '',
-                })
-              });
+          .then((value) {
+        print("-------------- Messages Added and Sending parameters");
+        Get.toNamed(AppRoutes.CHAT, parameters: {
+          'doc_id': value.id,
+          'to_uid': toUserData.id ?? '',
+          'to_name': toUserData.name ?? '',
+          'to_avatar': toUserData.photourl ?? '',
+        });
+      });
     } else {
+      print("--------------Else");
       if (fromMessage.docs.isNotEmpty) {
-        Get.toNamed('/chat', parameters: {
+        print("--------------else From Message");
+        Get.toNamed(AppRoutes.CHAT, parameters: {
           'doc_id': fromMessage.docs.first.id,
           'to_uid': toUserData.id ?? '',
           'to_name': toUserData.name ?? '',
@@ -88,7 +97,8 @@ class ContactController extends GetxController {
         });
       }
       if (toMessage.docs.isNotEmpty) {
-        Get.toNamed('/chat', parameters: {
+        print("--------------else to Message");
+        Get.toNamed(AppRoutes.CHAT, parameters: {
           'doc_id': toMessage.docs.first.id,
           'to_uid': toUserData.id ?? '',
           'to_name': toUserData.name ?? '',

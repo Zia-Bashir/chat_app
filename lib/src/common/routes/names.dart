@@ -5,4 +5,5 @@ class AppRoutes {
   static const SIGNIN = '/signin';
   static const APPLICATION = '/application';
   static const CONTACTS = '/contacts';
+  static const CHAT = '/chat';
 }

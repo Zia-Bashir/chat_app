@@ -5,6 +5,7 @@ import './names.dart';
 import '../../pages/splash/index.dart';
 import '../../pages/signin/index.dart';
 import '../../pages/application/index.dart';
+import '../../pages/chat/index.dart';
 
 class AppPages {
   static List<GetPage> routes = [
@@ -26,11 +27,17 @@ class AppPages {
       page: () => const ApplicationScreen(),
       binding: ApplicationBinding(),
     ),
-    //= -- Application Route
+    //= -- Contacts Route
     GetPage(
       name: AppRoutes.CONTACTS,
       page: () => const ContactScreen(),
       binding: ContactBinding(),
+    ),
+    //= -- Chat Route
+    GetPage(
+      name: AppRoutes.CHAT,
+      page: () => const ChatScreen(),
+      binding: ChatBinding(),
     ),
   ];
 }

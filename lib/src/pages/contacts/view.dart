@@ -1,4 +1,4 @@
-import 'package:chat_app/src/common/widgets/appBar.dart';
+import 'package:chat_app/src/common/widgets/app_bar.dart';
 import 'package:chat_app/src/pages/contacts/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,18 +12,18 @@ class ContactScreen extends GetView<ContactController> {
   Widget build(BuildContext context) {
     var style = Theme.of(context).textTheme;
 
-    //* App Bar
-    AppBar buildAppBar() {
-      return transparentAppBar(
-          title: Text(
-        "Contacts",
-        style: style.headline4?.copyWith(color: Colors.white),
-      ));
-    }
-
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(style),
       body: const ContactList(),
     );
   }
+}
+
+//* App Bar
+AppBar buildAppBar(TextTheme style) {
+  return transparentAppBar(
+      title: Text(
+    "Contacts",
+    style: style.headline4?.copyWith(color: Colors.white),
+  ));
 }

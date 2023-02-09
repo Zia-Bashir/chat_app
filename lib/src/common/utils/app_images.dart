@@ -8,3 +8,4 @@ const String chatterLogo = "assets/images/logo.svg";
 
 const String bgImage = "assets/images/bg.png";
 const String chatImage = "assets/images/chat_people.png";
+const String noImage = "assets/images/no_image.png";
