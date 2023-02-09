@@ -5,7 +5,7 @@ import './names.dart';
 import '../../pages/splash/index.dart';
 import '../../pages/signin/index.dart';
 import '../../pages/application/index.dart';
-import '../../pages/chat/index.dart';
+import '../../pages/messages/chat/index.dart';
 
 class AppPages {
   static List<GetPage> routes = [

@@ -33,13 +33,13 @@ class SignINBindingScreen extends GetView<SignInController> {
                 Column(
                   //? ------- Animation 1 -------
                   children: AnimationConfiguration.toStaggeredList(
-                      duration: const Duration(milliseconds: 1500),
-                      delay: const Duration(seconds: 5),
+                      duration: const Duration(milliseconds: 1000),
+                      delay: const Duration(seconds: 3),
                       childAnimationBuilder: (widget) => SlideAnimation(
                             horizontalOffset: 50.0,
-                            delay: const Duration(seconds: 5),
+                            delay: const Duration(seconds: 3),
                             child: FadeInAnimation(
-                              duration: const Duration(seconds: 3),
+                              duration: const Duration(seconds: 2),
                               child: widget,
                             ),
                           ),
@@ -62,7 +62,7 @@ class SignINBindingScreen extends GetView<SignInController> {
                   //? ------- Animation 2 -------
                   children: AnimationConfiguration.toStaggeredList(
                       duration: const Duration(milliseconds: 1000),
-                      delay: const Duration(seconds: 5),
+                      delay: const Duration(seconds: 3),
                       childAnimationBuilder: (widget) => SlideAnimation(
                             verticalOffset: 50.0,
                             delay: const Duration(seconds: 3),

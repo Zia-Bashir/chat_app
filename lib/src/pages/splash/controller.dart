@@ -16,7 +16,7 @@ class SplashController extends GetxController {
     state.logIn = StorageServices.to.getBool(LOGIN_STATE);
 
     Future.delayed(
-      const Duration(seconds: 5),
+      const Duration(seconds: 3),
       (() {
         if (state.logIn == true) {
           Get.offAllNamed(AppRoutes.APPLICATION);

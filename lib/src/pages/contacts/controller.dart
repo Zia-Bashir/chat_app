@@ -36,7 +36,6 @@ class ContactController extends GetxController {
 
   //* ----- Chat with Contact ------
   gochat(UserData toUserData) async {
-    print("--------------From Message");
     var fromMessage = await messageRF
         .withConverter(
             fromFirestore: Msg.fromFirestore,
@@ -44,7 +43,7 @@ class ContactController extends GetxController {
         .where('from_uid', isEqualTo: token)
         .where('to_uid', isEqualTo: toUserData.id)
         .get();
-    print("--------------to Message");
+
     var toMessage = await messageRF
         .withConverter(
             fromFirestore: Msg.fromFirestore,
@@ -54,7 +53,6 @@ class ContactController extends GetxController {
         .get();
 
     if (fromMessage.docs.isEmpty && toMessage.docs.isEmpty) {
-      print("--------------Empty Message");
       String profile = await UserStore.to.getProfile();
       UserLoginResponseEntity userData =
           UserLoginResponseEntity.fromJson(jsonDecode(profile));
@@ -69,7 +67,6 @@ class ContactController extends GetxController {
         msg_num: 0,
         last_time: Timestamp.now(),
       );
-      print("-------------- Message Data ----- $msgData");
 
       messageRF
           .withConverter(
@@ -77,7 +74,6 @@ class ContactController extends GetxController {
               toFirestore: (Msg msg, options) => msg.toFirestore())
           .add(msgData)
           .then((value) {
-        print("-------------- Messages Added and Sending parameters");
         Get.toNamed(AppRoutes.CHAT, parameters: {
           'doc_id': value.id,
           'to_uid': toUserData.id ?? '',
@@ -86,7 +82,6 @@ class ContactController extends GetxController {
         });
       });
     } else {
-      print("--------------Else");
       if (fromMessage.docs.isNotEmpty) {
         print("--------------else From Message");
         Get.toNamed(AppRoutes.CHAT, parameters: {
@@ -97,7 +92,6 @@ class ContactController extends GetxController {
         });
       }
       if (toMessage.docs.isNotEmpty) {
-        print("--------------else to Message");
         Get.toNamed(AppRoutes.CHAT, parameters: {
           'doc_id': toMessage.docs.first.id,
           'to_uid': toUserData.id ?? '',

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chat_app/src/common/utils/app_images.dart';
 import 'package:chat_app/src/common/widgets/app_bar.dart';
-import 'package:chat_app/src/pages/chat/index.dart';
+import 'package:chat_app/src/pages/messages/chat/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

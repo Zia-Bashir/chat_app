@@ -27,7 +27,7 @@ class SplashScreen extends GetView<SplashController> {
                 right: 0,
                 child: AnimatedOpacity(
                   opacity: controller.state.animate.value ? 1 : 0,
-                  duration: const Duration(milliseconds: 1000),
+                  duration: const Duration(milliseconds: 800),
                   child: SvgPicture.asset(chatterLogo),
                 ),
               ),
@@ -41,7 +41,7 @@ class SplashScreen extends GetView<SplashController> {
                 bottom: controller.state.animate.value ? 50.h : -20.h,
                 child: AnimatedOpacity(
                   opacity: controller.state.animate.value ? 1 : 0,
-                  duration: const Duration(milliseconds: 2000),
+                  duration: const Duration(milliseconds: 1000),
                   child: MyTextWidget(
                     title: tTitle,
                     style: style.headline2,
