@@ -27,13 +27,13 @@ AppBar buildAppBar(TextTheme style, ChatController controller) {
             child: InkWell(
               onTap: () {},
               child: SizedBox(
-                width: 44.w,
-                height: 44.h,
+                width: 44.r,
+                height: 44.r,
                 child: CachedNetworkImage(
                   imageUrl: controller.state.toAvatar.value,
                   imageBuilder: (context, imageProvider) => Container(
-                    height: 44.h,
-                    width: 44.w,
+                    width: 44.r,
+                    height: 44.r,
                     padding: null,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(44.r),

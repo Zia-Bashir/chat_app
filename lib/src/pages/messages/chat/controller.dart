@@ -25,6 +25,13 @@ class ChatController extends GetxController {
     super.onReady();
   }
 
+  @override
+  void onClose() {
+    state.textController.dispose();
+    state.listner.cancle();
+    super.onClose();
+  }
+
   //* ---- Send Message ------
   sendMessage() async {
     String sendContent = state.textController.text;

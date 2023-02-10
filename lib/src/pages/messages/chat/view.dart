@@ -2,6 +2,7 @@ import 'package:chat_app/src/common/utils/app_colors.dart';
 import 'package:chat_app/src/common/utils/app_sizes.dart';
 import 'package:chat_app/src/common/widgets/textfiled_widget.dart';
 import 'package:chat_app/src/pages/messages/chat/components/build_app_bar.dart';
+import 'package:chat_app/src/pages/messages/chat/components/chat_list.dart';
 import 'package:chat_app/src/pages/messages/chat/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,6 +21,7 @@ class ChatScreen extends GetView<ChatController> {
           constraints: const BoxConstraints.expand(),
           child: Stack(
             children: [
+              const ChatList(),
               Positioned(
                 bottom: 0.h,
                 child: Container(

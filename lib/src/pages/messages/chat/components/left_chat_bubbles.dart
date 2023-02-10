@@ -4,7 +4,7 @@ import 'package:chat_app/src/common/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Widget rightChatBubble(BuildContext context, Msgcontent item) {
+Widget leftChatBubble(BuildContext context, Msgcontent item) {
   var style = Theme.of(context).textTheme;
 
   return Container(
@@ -12,7 +12,7 @@ Widget rightChatBubble(BuildContext context, Msgcontent item) {
       vertical: 10.h,
       horizontal: 10.w,
     ),
-    child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+    child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
       ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 230.w, minHeight: 40.h),
         child: Container(
@@ -23,7 +23,7 @@ Widget rightChatBubble(BuildContext context, Msgcontent item) {
           ),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.r),
-              color: AppColors.yellowColor),
+              color: AppColors.greenColor),
           child: item.type == "text"
               ? Text(
                   item.content!,

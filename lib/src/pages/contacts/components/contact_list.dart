@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chat_app/src/common/entities/user.dart';
-import 'package:chat_app/src/common/utils/app_colors.dart';
+import 'package:chat_app/src/common/utils/utils_index.dart';
 import 'package:chat_app/src/pages/contacts/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,9 +49,22 @@ class ContactList extends GetView<ContactController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 54.h,
               width: 54.w,
-              child: CachedNetworkImage(imageUrl: item.photourl!),
+              height: 54.h,
+              child: CachedNetworkImage(
+                imageUrl: item.photourl!,
+                imageBuilder: (context, imageProvider) => Container(
+                  width: 54.w,
+                  height: 54.h,
+                  padding: null,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: imageProvider, fit: BoxFit.cover),
+                  ),
+                ),
+                errorWidget: (context, url, error) =>
+                    const Image(image: AssetImage(noImage)),
+              ),
             ),
             Container(
               width: 250.w,
