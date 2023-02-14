@@ -115,7 +115,9 @@ class ChatScreen extends GetView<ChatController> {
                       //* ------ Send Message Button ------
                       GestureDetector(
                         onTap: () {
-                          controller.sendMessage();
+                          if (controller.state.textController.text.isNotEmpty) {
+                            controller.sendMessage();
+                          }
                         },
                         child: Container(
                           height: 42.h,

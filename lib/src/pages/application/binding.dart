@@ -1,6 +1,7 @@
 import 'package:chat_app/src/pages/application/index.dart';
 import 'package:chat_app/src/pages/contacts/index.dart';
 import 'package:chat_app/src/pages/messages/controller.dart';
+import 'package:chat_app/src/pages/profile/index.dart';
 import 'package:get/get.dart';
 
 class ApplicationBinding implements Bindings {
@@ -9,5 +10,6 @@ class ApplicationBinding implements Bindings {
     Get.lazyPut<ApplicationController>(() => ApplicationController());
     Get.lazyPut<ContactController>(() => ContactController());
     Get.lazyPut<MessageController>(() => MessageController());
+    Get.lazyPut<ProfileController>(() => ProfileController());
   }
 }

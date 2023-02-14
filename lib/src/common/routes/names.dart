@@ -6,4 +6,6 @@ class AppRoutes {
   static const APPLICATION = '/application';
   static const CONTACTS = '/contacts';
   static const CHAT = '/chat';
+  static const MESSAGE = '/message';
+  static const PROFILE = '/profile';
 }

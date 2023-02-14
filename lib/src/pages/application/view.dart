@@ -15,12 +15,9 @@ class ApplicationScreen extends GetView<ApplicationController> {
         physics: const NeverScrollableScrollPhysics(),
         controller: controller.pageController,
         onPageChanged: controller.handlePageChanged,
-        children: [
-          const MessageScreen(),
-          const ContactScreen(),
-          Container(
-            child: const Text("Setting"),
-          ),
+        children: const [
+          MessageScreen(),
+          ContactScreen(),
         ],
       ),
       bottomNavigationBar: Obx(

@@ -89,4 +89,17 @@ class SignInController extends GetxController {
       toastInfo(msg: "Error", backgroundColor: Colors.red);
     }
   }
+
+  //* ------------------ SignOut ------------------
+
+  signOut() async {
+    try {
+      await _googleSignIn.signOut();
+      toastInfo(msg: "Logout Success");
+      await StorageServices.to.setBool(LOGIN_STATE, false);
+      Get.offAllNamed(AppRoutes.SIGNIN);
+    } catch (e) {
+      toastInfo(msg: "Error", backgroundColor: Colors.red);
+    }
+  }
 }

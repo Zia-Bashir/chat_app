@@ -1,3 +1,5 @@
+import 'package:chat_app/src/pages/messages/index.dart';
+import 'package:chat_app/src/pages/profile/index.dart';
 import 'package:get/get.dart';
 
 import '../../pages/contacts/index.dart';
@@ -38,6 +40,18 @@ class AppPages {
       name: AppRoutes.CHAT,
       page: () => const ChatScreen(),
       binding: ChatBinding(),
+    ),
+    //= -- Message Route
+    GetPage(
+      name: AppRoutes.MESSAGE,
+      page: () => const MessageScreen(),
+      binding: MessageBinding(),
+    ),
+    //= -- Profile Route
+    GetPage(
+      name: AppRoutes.PROFILE,
+      page: () => const ProfileScreen(),
+      binding: ProfileBinding(),
     ),
   ];
 }

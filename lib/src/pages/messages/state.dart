@@ -10,7 +10,7 @@ class MessageState {
   RxList<QueryDocumentSnapshot<Msg>> msgList =
       <QueryDocumentSnapshot<Msg>>[].obs;
   final token = UserStore.to.token;
-  final fromImage = UserStore.to.profile;
+  final userProfile = UserStore.to.profile;
   RefreshController refreshController = RefreshController(
     initialRefresh: true,
   );

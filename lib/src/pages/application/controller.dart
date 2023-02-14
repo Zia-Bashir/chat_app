@@ -13,7 +13,10 @@ class ApplicationController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    tabTitels = ['Chat', 'Contacts', 'Setting'];
+    tabTitels = [
+      'Chat',
+      'Contacts',
+    ];
     bottomTabs = [
       BottomNavigationBarItem(
         icon: const Icon(
@@ -26,12 +29,6 @@ class ApplicationController extends GetxController {
           Icons.contact_page,
         ),
         label: tabTitels[1],
-      ),
-      BottomNavigationBarItem(
-        icon: const Icon(
-          Icons.settings,
-        ),
-        label: tabTitels[2],
       ),
     ];
     pageController = PageController(initialPage: state.page);

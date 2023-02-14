@@ -20,3 +20,12 @@ String duTimeLineFormat(DateTime dt) {
     return str;
   }
 }
+
+String getTime(DateTime dt) {
+  String timestamp = dt.toString();
+  DateTime dateTime = DateTime.parse(timestamp);
+  int hour = dateTime.hour;
+  int minute = dateTime.minute;
+  String time = "$hour:$minute";
+  return time;
+}
