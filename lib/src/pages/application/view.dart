@@ -1,6 +1,7 @@
 import 'package:chat_app/src/common/utils/app_colors.dart';
 import 'package:chat_app/src/pages/application/index.dart';
 import 'package:chat_app/src/pages/contacts/index.dart';
+import 'package:chat_app/src/pages/messages/view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,9 +16,7 @@ class ApplicationScreen extends GetView<ApplicationController> {
         controller: controller.pageController,
         onPageChanged: controller.handlePageChanged,
         children: [
-          Container(
-            child: const Text("Chat"),
-          ),
+          const MessageScreen(),
           const ContactScreen(),
           Container(
             child: const Text("Setting"),

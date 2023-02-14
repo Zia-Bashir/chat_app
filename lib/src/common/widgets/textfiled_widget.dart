@@ -1,11 +1,14 @@
 import 'package:chat_app/src/common/utils/utils_index.dart';
+import 'package:chat_app/src/pages/messages/chat/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-class TextFieldWidget extends StatelessWidget {
+class TextFieldWidget extends GetView<ChatController> {
   const TextFieldWidget({
     Key? key,
-    required this.controller,
+    required this.textcontroller,
+    required this.onPressed,
     this.hintText = '',
     required this.icon,
     this.color = AppColors.mainColor,
@@ -13,11 +16,11 @@ class TextFieldWidget extends StatelessWidget {
     this.keyboard,
   }) : super(key: key);
 
-  final TextEditingController controller;
+  final TextEditingController textcontroller;
   final String? hintText;
   final IconData icon;
   final Color color;
-
+  final VoidCallback onPressed;
   final TextInputType? keyboard;
   final String? Function(String?)? validator;
 
@@ -33,7 +36,7 @@ class TextFieldWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(28.r),
           ),
           child: TextFormField(
-            controller: controller,
+            controller: textcontroller,
             validator: validator,
             style: style.subtitle1?.copyWith(
                 color: Colors.black,
@@ -46,7 +49,8 @@ class TextFieldWidget extends StatelessWidget {
                   color: Colors.grey,
                   fontSize: 14.r,
                   fontWeight: FontWeight.w400),
-              suffixIcon: Icon(icon),
+              suffixIcon: IconButton(
+                  onPressed: onPressed, icon: const Icon(Icons.attach_file)),
               contentPadding: EdgeInsets.only(left: 20.w, right: 5.w),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(28.r),

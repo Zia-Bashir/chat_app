@@ -17,13 +17,22 @@ Widget rightChatBubble(BuildContext context, Msgcontent item) {
         constraints: BoxConstraints(maxWidth: 230.w, minHeight: 40.h),
         child: Container(
           margin: EdgeInsets.only(right: 10.w),
-          padding: EdgeInsets.symmetric(
-            vertical: 15.h,
-            horizontal: 10.w,
-          ),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.r),
-              color: AppColors.yellowColor),
+          padding: item.type == "text"
+              ? EdgeInsets.symmetric(
+                  vertical: 15.h,
+                  horizontal: 10.w,
+                )
+              : EdgeInsets.symmetric(
+                  vertical: 5.h,
+                  horizontal: 5.w,
+                ),
+          decoration: item.type == "text"
+              ? BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.r),
+                  color: AppColors.yellowColor)
+              : BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.r),
+                  color: AppColors.yellowColor),
           child: item.type == "text"
               ? Text(
                   item.content!,
@@ -35,7 +44,18 @@ Widget rightChatBubble(BuildContext context, Msgcontent item) {
                   ),
                   child: GestureDetector(
                     onTap: () {},
-                    child: CachedNetworkImage(imageUrl: item.content!),
+                    child: CachedNetworkImage(
+                      imageUrl: item.content!,
+                      imageBuilder: (context, imageProvider) => Container(
+                        height: 150.h,
+                        padding: null,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.r),
+                          image: DecorationImage(
+                              image: imageProvider, fit: BoxFit.cover),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
         ),

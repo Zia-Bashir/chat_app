@@ -2,6 +2,7 @@ import 'package:chat_app/src/common/entities/entities.dart';
 import 'package:chat_app/src/common/store/store.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ChatState {
   RxList<Msgcontent> msgContentList = <Msgcontent>[].obs;
@@ -17,4 +18,7 @@ class ChatState {
   final userID = UserStore.to.token;
 
   var listner;
+
+  ImagePicker picker = ImagePicker();
+  var emojiShowing = false.obs;
 }
