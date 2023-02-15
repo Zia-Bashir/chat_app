@@ -1,4 +1,5 @@
 import 'package:chat_app/src/pages/messages/index.dart';
+import 'package:chat_app/src/pages/messages/photoview/index.dart';
 import 'package:chat_app/src/pages/profile/index.dart';
 import 'package:get/get.dart';
 
@@ -52,6 +53,12 @@ class AppPages {
       name: AppRoutes.PROFILE,
       page: () => const ProfileScreen(),
       binding: ProfileBinding(),
+    ),
+    //= -- PhotoView Route
+    GetPage(
+      name: AppRoutes.PHOTOVIEW,
+      page: () => const PhotoViewScreen(),
+      binding: PhotoViewBinding(),
     ),
   ];
 }

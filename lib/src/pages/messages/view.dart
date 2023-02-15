@@ -17,10 +17,10 @@ class MessageScreen extends GetView<MessageController> {
         child: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          flexibleSpace: SafeArea(
-            child: Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(right: 24.w, left: 24.w),
+          flexibleSpace: Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(right: 24.w, left: 24.w),
+            child: SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,

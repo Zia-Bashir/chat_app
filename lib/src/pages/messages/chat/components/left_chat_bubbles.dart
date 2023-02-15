@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chat_app/src/common/entities/entities.dart';
+import 'package:chat_app/src/common/routes/routes.dart';
 import 'package:chat_app/src/common/utils/app_colors.dart';
 import 'package:chat_app/src/common/utils/date.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 Widget leftChatBubble(BuildContext context, Msgcontent item) {
   var style = Theme.of(context).textTheme;
@@ -49,7 +51,11 @@ Widget leftChatBubble(BuildContext context, Msgcontent item) {
                         maxWidth: 90.h,
                       ),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(AppRoutes.PHOTOVIEW, parameters: {
+                            'url': item.content ?? '',
+                          });
+                        },
                         child: CachedNetworkImage(
                           imageUrl: item.content!,
                           imageBuilder: (context, imageProvider) => Container(

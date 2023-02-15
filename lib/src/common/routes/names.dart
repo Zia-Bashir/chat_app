@@ -8,4 +8,5 @@ class AppRoutes {
   static const CHAT = '/chat';
   static const MESSAGE = '/message';
   static const PROFILE = '/profile';
+  static const PHOTOVIEW = '/photoview';
 }
