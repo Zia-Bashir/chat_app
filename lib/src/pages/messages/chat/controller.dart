@@ -311,45 +311,60 @@ class ChatController extends GetxController {
         builder: (context) {
           return Container(
             height: 130.h,
-            padding: EdgeInsets.symmetric(
-              horizontal: 24.w,
-            ),
+            padding: EdgeInsets.only(top: 15.h, bottom: 10.h),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                InkWell(
-                  onTap: () {
-                    pickCameraImage();
-                    Navigator.of(context).pop();
-                  },
-                  child: Container(
-                    alignment: Alignment.bottomCenter,
-                    width: double.infinity,
-                    height: 50.h,
-                    child: Text("Camera",
-                        style: style.subtitle1?.copyWith(
-                            color: AppColors.darkColor,
-                            fontWeight: FontWeight.w400)),
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      pickCameraImage();
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: Text("Camera",
+                          style: style.subtitle1?.copyWith(
+                              color: AppColors.darkColor,
+                              fontWeight: FontWeight.w400)),
+                    ),
+                  ),
+                ),
+                const Divider(color: AppColors.darkColor, thickness: 1),
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      pickGalleryImage();
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                      alignment: Alignment.topCenter,
+                      child: Text("Gallery",
+                          style: style.subtitle1?.copyWith(
+                              color: AppColors.darkColor,
+                              fontWeight: FontWeight.w400)),
+                    ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child:
-                      const Divider(color: AppColors.darkColor, thickness: 1),
+                  padding: EdgeInsets.symmetric(horizontal: 30.w),
+                  child: const Divider(
+                    color: Colors.red,
+                    thickness: 1,
+                  ),
                 ),
-                InkWell(
-                  onTap: () {
-                    pickGalleryImage();
-                    Navigator.of(context).pop();
-                  },
-                  child: Container(
-                    alignment: Alignment.topCenter,
-                    width: double.infinity,
-                    height: 50.h,
-                    child: Text("Gallery",
-                        style: style.subtitle1?.copyWith(
-                            color: AppColors.darkColor,
-                            fontWeight: FontWeight.w400)),
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                      alignment: Alignment.topCenter,
+                      child: Text("Cancel",
+                          style: style.subtitle1?.copyWith(
+                              color: Colors.red,
+                              fontWeight: FontWeight.normal)),
+                    ),
                   ),
                 ),
               ],
