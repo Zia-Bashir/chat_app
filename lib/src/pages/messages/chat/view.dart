@@ -114,9 +114,6 @@ class ChatScreen extends GetView<ChatController> {
                             onTap: () {
                               controller.state.emojiShowing.value =
                                   !controller.state.emojiShowing.value;
-                              print("ontap");
-                              print(controller.state.emojiShowing.value
-                                  .toString());
                             },
                             child: Icon(
                               Icons.emoji_emotions_rounded,

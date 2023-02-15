@@ -85,7 +85,6 @@ class SignInController extends GetxController {
         Get.offAllNamed(AppRoutes.APPLICATION);
       }
     } catch (e) {
-      print(e.toString());
       toastInfo(msg: "Error", backgroundColor: Colors.red);
     }
   }

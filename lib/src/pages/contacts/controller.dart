@@ -83,7 +83,6 @@ class ContactController extends GetxController {
       });
     } else {
       if (fromMessage.docs.isNotEmpty) {
-        print("--------------else From Message");
         Get.toNamed(AppRoutes.CHAT, parameters: {
           'doc_id': fromMessage.docs.first.id,
           'to_uid': toUserData.id ?? '',

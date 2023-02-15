@@ -40,7 +40,6 @@ class ContactList extends GetView<ContactController> {
       child: InkWell(
         onTap: () {
           if (item.id != null) {
-            print("--------------Id is not null");
             controller.gochat(item);
           }
         },
