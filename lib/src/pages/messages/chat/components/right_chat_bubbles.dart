@@ -2,12 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chat_app/src/common/entities/entities.dart';
 import 'package:chat_app/src/common/utils/app_colors.dart';
 import 'package:chat_app/src/common/utils/date.dart';
+import 'package:chat_app/src/pages/messages/chat/controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget rightChatBubble(BuildContext context, Msgcontent item) {
   var style = Theme.of(context).textTheme;
+  ChatController chatController = ChatController();
 
   return Container(
     padding: EdgeInsets.symmetric(

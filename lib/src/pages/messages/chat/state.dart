@@ -21,4 +21,5 @@ class ChatState {
 
   ImagePicker picker = ImagePicker();
   var emojiShowing = false.obs;
+  var isUploading = false.obs;
 }

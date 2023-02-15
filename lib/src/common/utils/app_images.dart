@@ -21,3 +21,7 @@ const String icon4 = "assets/icons/4.png";
 const String icon5 = "assets/icons/5.png";
 const String icon6 = "assets/icons/6.png";
 const String icon7 = "assets/icons/7.png";
+
+//? -------- Json -------
+
+const String loading = "assets/json/Loading.json";

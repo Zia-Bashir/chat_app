@@ -88,6 +88,9 @@ class ChatController extends GetxController {
     );
 
     //* ---- Add Image Message to Firestore Collection ------
+    state.isUploading.value = false;
+    print('Is Uploading ----- ${state.isUploading.value.toString()}');
+
     await messageRF
         .doc(state.docId)
         .collection("msgList")
@@ -109,6 +112,8 @@ class ChatController extends GetxController {
 
   uploadImage() async {
     if (imagePath == null) return;
+    state.isUploading.value = true;
+    print('Is Uploading ----- ${state.isUploading.value.toString()}');
     final fileName = getRandomString(15) + imageFileExtension(imagePath);
     try {
       final ref = chatImageRF.child(fileName);
@@ -126,6 +131,8 @@ class ChatController extends GetxController {
         }
       });
     } catch (e) {
+      state.isUploading.value = false;
+      print('Is Uploading ----- ${state.isUploading.value.toString()}');
       toastInfo(msg: "Error");
     }
   }
@@ -303,7 +310,7 @@ class ChatController extends GetxController {
         context: context,
         builder: (context) {
           return Container(
-            height: 200.h,
+            height: 130.h,
             padding: EdgeInsets.symmetric(
               horizontal: 24.w,
             ),
@@ -316,29 +323,19 @@ class ChatController extends GetxController {
                     Navigator.of(context).pop();
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20.w,
-                    ),
+                    alignment: Alignment.bottomCenter,
                     width: double.infinity,
-                    height: 80.h,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15.r),
-                        color: AppColors.greenColor),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.camera,
-                          color: AppColors.mainColor,
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        Text("From Camera",
-                            style:
-                                style.headline3?.copyWith(color: Colors.black))
-                      ],
-                    ),
+                    height: 50.h,
+                    child: Text("Camera",
+                        style: style.subtitle1?.copyWith(
+                            color: AppColors.darkColor,
+                            fontWeight: FontWeight.w400)),
                   ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child:
+                      const Divider(color: AppColors.darkColor, thickness: 1),
                 ),
                 InkWell(
                   onTap: () {
@@ -346,28 +343,13 @@ class ChatController extends GetxController {
                     Navigator.of(context).pop();
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20.w,
-                    ),
+                    alignment: Alignment.topCenter,
                     width: double.infinity,
-                    height: 80.h,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15.r),
-                        color: AppColors.yellowColor),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.image,
-                          color: AppColors.mainColor,
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        Text("From Gallery",
-                            style:
-                                style.headline3?.copyWith(color: Colors.black))
-                      ],
-                    ),
+                    height: 50.h,
+                    child: Text("Gallery",
+                        style: style.subtitle1?.copyWith(
+                            color: AppColors.darkColor,
+                            fontWeight: FontWeight.w400)),
                   ),
                 ),
               ],

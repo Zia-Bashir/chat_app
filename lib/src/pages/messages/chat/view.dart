@@ -1,4 +1,5 @@
 import 'package:chat_app/src/common/utils/app_colors.dart';
+import 'package:chat_app/src/common/utils/app_images.dart';
 import 'package:chat_app/src/common/utils/app_sizes.dart';
 import 'package:chat_app/src/common/widgets/textfiled_widget.dart';
 import 'package:chat_app/src/pages/messages/chat/components/build_app_bar.dart';
@@ -7,6 +8,7 @@ import 'package:chat_app/src/pages/messages/chat/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class ChatScreen extends GetView<ChatController> {
   const ChatScreen({super.key});
@@ -66,11 +68,31 @@ class ChatScreen extends GetView<ChatController> {
               //     ),
               //   ),
               // ),
+              Obx(
+                () => Positioned(
+                  bottom: 70.h,
+                  right: 0,
+                  left: 0,
+                  child: controller.state.isUploading.value == true
+                      ? Container(
+                          alignment: Alignment.center,
+                          child: Center(
+                            child: SizedBox(
+                              height: 30.h,
+                              width: 60.w,
+                              child: Lottie.asset(loading,
+                                  repeat: true, fit: BoxFit.cover),
+                            ),
+                          ),
+                        )
+                      : Container(),
+                ),
+              ),
               Positioned(
                 bottom: 0.h,
                 child: Container(
                   height: 52.h,
-                  color: Colors.white,
+                  color: const Color(0xffFAFAFA),
                   width: screenWidth,
                   padding: EdgeInsets.only(
                     right: 10.w,
