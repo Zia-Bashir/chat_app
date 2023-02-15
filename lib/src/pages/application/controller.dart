@@ -1,3 +1,4 @@
+import 'package:chat_app/src/common/utils/my_flutter_app_icons.dart';
 import 'package:chat_app/src/pages/application/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,13 +21,13 @@ class ApplicationController extends GetxController {
     bottomTabs = [
       BottomNavigationBarItem(
         icon: const Icon(
-          Icons.message,
+          MyFlutterApp.chat1,
         ),
         label: tabTitels[0],
       ),
       BottomNavigationBarItem(
         icon: const Icon(
-          Icons.contact_page,
+          MyFlutterApp.contactbook,
         ),
         label: tabTitels[1],
       ),

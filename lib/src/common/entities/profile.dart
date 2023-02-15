@@ -24,8 +24,6 @@ List<ProfileModel> profileModel = [
     title: "Logout",
     imgUrl: icon7,
     onTap: () {
-      print('signout ----- ');
-
       signController.signOut();
     },
   ),

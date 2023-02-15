@@ -38,14 +38,14 @@ class MessageController extends GetxController {
             toFirestore: (Msg msg, options) => msg.toFirestore())
         .where('from_uid', isEqualTo: state.token)
         .get();
-    print("from messges");
+
     var toMessage = await messageRF
         .withConverter(
             fromFirestore: Msg.fromFirestore,
             toFirestore: (Msg msg, options) => msg.toFirestore())
         .where('to_uid', isEqualTo: state.token)
         .get();
-    print("To messges");
+
     state.msgList.clear();
     if (fromMessage.docs.isNotEmpty) {
       state.msgList.assignAll(fromMessage.docs);

@@ -66,7 +66,6 @@ class ChatController extends GetxController {
             toFirestore: (Msgcontent msg, optoons) => msg.toFirestore())
         .add(content)
         .then((DocumentReference doc) {
-      print("Message added into : ${doc.id}");
       state.textController.clear();
       //Get.focusScope?.unfocus();
     });
@@ -89,7 +88,6 @@ class ChatController extends GetxController {
 
     //* ---- Add Image Message to Firestore Collection ------
     state.isUploading.value = false;
-    print('Is Uploading ----- ${state.isUploading.value.toString()}');
 
     await messageRF
         .doc(state.docId)
@@ -98,9 +96,7 @@ class ChatController extends GetxController {
             fromFirestore: Msgcontent.fromFirestore,
             toFirestore: (Msgcontent msg, optoons) => msg.toFirestore())
         .add(content)
-        .then((DocumentReference doc) {
-      print("ImageMessage added into : ${doc.id}");
-    });
+        .then((DocumentReference doc) {});
 
     //* ---- Update the Last Message and Time ------
     await messageRF
@@ -113,7 +109,7 @@ class ChatController extends GetxController {
   uploadImage() async {
     if (imagePath == null) return;
     state.isUploading.value = true;
-    print('Is Uploading ----- ${state.isUploading.value.toString()}');
+
     final fileName = getRandomString(15) + imageFileExtension(imagePath);
     try {
       final ref = chatImageRF.child(fileName);
@@ -132,7 +128,7 @@ class ChatController extends GetxController {
       });
     } catch (e) {
       state.isUploading.value = false;
-      print('Is Uploading ----- ${state.isUploading.value.toString()}');
+
       toastInfo(msg: "Error");
     }
   }
@@ -173,6 +169,7 @@ class ChatController extends GetxController {
           }
         }
       },
+      // ignore: avoid_print
       onError: (error) => print("Listen Failed: $error"),
     );
   }

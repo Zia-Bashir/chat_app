@@ -9,6 +9,8 @@ class MessageList extends GetView<MessageController> {
 
   @override
   Widget build(BuildContext context) {
+    //* ------------------ Pull to Refresh ------------------
+
     return Obx(
       () => SmartRefresher(
         controller: controller.state.refreshController,
@@ -25,6 +27,8 @@ class MessageList extends GetView<MessageController> {
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
                     var item = controller.state.msgList[index];
+                    //* ------------------ Message List Items ------------------
+
                     return messageListItems(item, context);
                   },
                   childCount: controller.state.msgList.length,

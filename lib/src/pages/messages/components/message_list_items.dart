@@ -21,6 +21,9 @@ Widget messageListItems(QueryDocumentSnapshot<Msg> item, context) {
         var toUid = '';
         var toNmae = '';
         var toAvatar = '';
+
+        //* ------------------ Getting Data ------------------
+
         if (item.data().from_uid == controller.state.token) {
           toUid = item.data().to_uid ?? '';
           toNmae = item.data().to_name ?? '';
@@ -30,6 +33,9 @@ Widget messageListItems(QueryDocumentSnapshot<Msg> item, context) {
           toNmae = item.data().from_name ?? '';
           toAvatar = item.data().from_avatar ?? '';
         }
+
+        //* ------------------ Sending Data to Parameters ------------------
+
         Get.toNamed(AppRoutes.CHAT, parameters: {
           'doc_id': item.id,
           'to_uid': toUid,
@@ -46,6 +52,9 @@ Widget messageListItems(QueryDocumentSnapshot<Msg> item, context) {
             child: SizedBox(
               height: 54.w,
               width: 54.w,
+
+              //* ------------------ Network Image ------------------
+
               child: CachedNetworkImage(
                 imageUrl: item.data().from_uid == controller.state.token
                     ? item.data().to_avatar!
@@ -93,6 +102,8 @@ Widget messageListItems(QueryDocumentSnapshot<Msg> item, context) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
+                      //* ------------------ to_User Name ------------------
+
                       Text(
                         item.data().to_name!,
                         maxLines: 1,
@@ -101,6 +112,9 @@ Widget messageListItems(QueryDocumentSnapshot<Msg> item, context) {
                             fontWeight: FontWeight.bold,
                             color: AppColors.mainColor),
                       ),
+
+                      //* ------------------ Last Message ------------------
+
                       Text(
                         item.data().last_msg ?? '',
                         maxLines: 1,
@@ -114,6 +128,9 @@ Widget messageListItems(QueryDocumentSnapshot<Msg> item, context) {
                     ],
                   ),
                 ),
+
+                //= ------------------ Time  ------------------
+
                 Text(
                   duTimeLineFormat(
                       (item.data().last_time as Timestamp).toDate()),
